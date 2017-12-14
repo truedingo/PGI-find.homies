@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name" translatable="false">LoginScreenTryout</string>
+    <string name="login">Login</string>
+    <string name="sign_up" translatable="false">Sign Up</string>
+</resources>
