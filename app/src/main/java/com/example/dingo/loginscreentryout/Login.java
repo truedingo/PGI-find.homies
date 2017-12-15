@@ -7,11 +7,11 @@ import android.os.Bundle;
  * Created by Dingo on 12/12/2017.
  */
 
-public class signup extends Activity{
+public class Login extends Activity{
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.signup);
+        setContentView(R.layout.login);
     }
 
 }

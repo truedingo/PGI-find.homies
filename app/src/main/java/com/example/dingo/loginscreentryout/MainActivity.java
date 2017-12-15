@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void onButtonClick(View v){
         if(v.getId() == R.id.bLogin){
-            Intent i = new Intent(MainActivity.this, signup.class);
+            Intent i = new Intent(MainActivity.this, Login.class);
             startActivity(i);
         }
     }

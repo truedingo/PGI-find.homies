@@ -2,4 +2,6 @@
     <string name="app_name" translatable="false">LoginScreenTryout</string>
     <string name="login">Login</string>
     <string name="sign_up" translatable="false">Sign Up</string>
+    <string name="logoFindHomies">findHomies</string>
+    <string name="username">Username</string>
 </resources>
