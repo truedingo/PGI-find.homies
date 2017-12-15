@@ -14,7 +14,7 @@
 
     <Button
         android:id="@+id/bLogin"
-        style="@android:style/Widget.Button.Transparent"
+        style="style/Widget.Button.Transparent"
         android:layout_width="209dp"
         android:layout_height="71dp"
         android:layout_marginBottom="164dp"
@@ -33,7 +33,7 @@
 
     <Button
         android:id="@+id/bSignup"
-        style="@android:style/Widget.Button.Transparent"
+        style="style/Widget.Button.Transparent"
         android:layout_width="209dp"
         android:layout_height="71dp"
         android:layout_marginBottom="60dp"
