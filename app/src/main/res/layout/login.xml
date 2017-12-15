@@ -7,11 +7,16 @@
     tools:context="com.example.dingo.loginscreentryout.MainActivity">
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:background="@drawable/gradient_color"
-        tools:layout_editor_absoluteX="485dp"
-        tools:layout_editor_absoluteY="0dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageView
             android:id="@+id/imageView"
@@ -19,11 +24,45 @@
             android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="49dp"
-            app:srcCompat="@drawable/text" android:contentDescription="TODO"/>
+            android:layout_marginTop="52dp"
+            android:contentDescription="@string/findhomies"
+            app:srcCompat="@drawable/text" />
+
+        <Button
+            android:id="@+id/bLogin2"
+            style="style/Widget.Button.Transparent"
+            android:layout_width="209dp"
+            android:layout_height="60dp"
+            android:layout_below="@+id/editText3"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="45dp"
+            android:background="@drawable/buttonshape"
+            android:onClick="onButtonClick"
+            android:shadowColor="#809FA8"
+            android:shadowDx="0"
+            android:shadowDy="0"
+            android:shadowRadius="1"
+            android:text="@string/login"
+            android:textColor="#7E9AD9"
+            android:textSize="30sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.502"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <TextView
             android:id="@+id/textView2"
+            android:layout_width="300dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2"
+            android:layout_centerVertical="true"
+            android:text="Password"
+            android:textColor="#FF6475D9"
+            android:textSize="32sp" />
+
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="300dp"
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/imageView"
@@ -33,6 +72,29 @@
             android:text="@string/username"
             android:textColor="#FF6475D9"
             android:textSize="32sp" />
+
+        <EditText
+            android:id="@+id/editText2"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_alignLeft="@+id/textView3"
+            android:layout_alignStart="@+id/textView3"
+            android:layout_below="@+id/textView3"
+            android:background="@drawable/edit_color"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:radius="35dp" />
+
+        <EditText
+            android:id="@+id/editText3"
+            android:layout_width="300dp"
+            android:layout_height="35dp"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_below="@+id/textView2"
+            android:background="@drawable/edit_color"
+            android:ems="10"
+            android:inputType="textPassword" />
 
     </RelativeLayout>
 </android.support.constraint.ConstraintLayout>
