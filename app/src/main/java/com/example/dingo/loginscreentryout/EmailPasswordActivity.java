@@ -230,6 +230,4 @@ public class EmailPasswordActivity extends AppCompatActivity implements
             sendEmailVerification();
         }
     }
-}
-
-*/
+}*/
