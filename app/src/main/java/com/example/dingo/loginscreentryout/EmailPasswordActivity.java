@@ -1,10 +1,6 @@
-package com.example.dingo.loginscreentryout;
+/*package com.example.dingo.loginscreentryout;
 
-/**
- * Created by Dingo on 14/12/2017.
- */
-
-/*import android.os.Bundle;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;

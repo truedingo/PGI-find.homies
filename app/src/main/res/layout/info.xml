@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:facebook="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dingo.loginscreentryout.Info"
+>
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="663dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gradient_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="24dp"
+            android:contentDescription="@string/todo"
+            app:srcCompat="@drawable/text" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_alignEnd="@+id/imageView"
+            android:layout_alignRight="@+id/imageView"
+            android:layout_below="@+id/imageView"
+            android:font="@font/futuralt"
+            android:text="name"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <EditText
+            android:id="@+id/editText4"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_alignEnd="@+id/textView"
+            android:layout_alignRight="@+id/textView"
+            android:layout_alignTop="@+id/textView"
+            android:layout_marginTop="33dp"
+            android:background="@drawable/edit_color"
+            android:ems="10" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="60dp"
+            android:layout_height="50dp"
+            android:layout_alignLeft="@+id/textView"
+            android:layout_alignStart="@+id/textView"
+            android:layout_below="@+id/editText4"
+            android:layout_marginTop="18dp"
+            android:font="@font/futuralt"
+            android:text="age"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="89dp"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/editText4"
+            android:layout_alignStart="@+id/editText4"
+            android:layout_alignTop="@+id/textView4"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/edit_color"
+            android:font="@font/futuralt"
+            android:text="age"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView4"
+            android:layout_alignStart="@+id/textView4"
+            android:layout_below="@+id/spinner"
+            android:layout_marginTop="23dp"
+            android:font="@font/futuralt"
+            android:text="Faculdade"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/spinner"
+            android:layout_alignStart="@+id/spinner"
+            android:layout_below="@+id/textView5"
+            android:background="@drawable/edit_color"
+            android:font="@font/futuralt"
+            android:text="Faculdade"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/Curso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/textView5"
+            android:layout_alignStart="@+id/textView5"
+            android:layout_below="@+id/spinner2"
+            android:layout_marginTop="20dp"
+            android:font="@font/futuralt"
+            android:text="Curso"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <Spinner
+            android:id="@+id/spinner3"
+            android:layout_width="250dp"
+            android:layout_height="40dp"
+            android:layout_alignLeft="@+id/spinner2"
+            android:layout_alignStart="@+id/spinner2"
+            android:layout_below="@+id/Curso"
+            android:background="@drawable/edit_color"
+            android:font="@font/futuralt"
+            android:text="Faculdade"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/spinner3"
+            android:layout_marginTop="21dp"
+            android:layout_toEndOf="@+id/textView4"
+            android:layout_toRightOf="@+id/textView4"
+            android:background="@drawable/buttonshape"
+            android:font="@font/futuralt"
+            android:text="Sign Up"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
