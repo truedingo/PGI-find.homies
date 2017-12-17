@@ -15,6 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignUp extends AppCompatActivity implements View.OnClickListener{
 
+
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

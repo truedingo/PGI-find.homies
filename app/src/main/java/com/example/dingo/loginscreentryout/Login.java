@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -15,13 +16,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class Login extends AppCompatActivity implements View.OnClickListener{
+public class Login extends AppCompatActivity {
     private FirebaseAuth mAuth;
-    Button login;
-    EditText getEmail;
-    EditText getPassword;
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
-    private static final String TAG = "EmailPassword";
+    private static final String TAG = "Login";
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -29,57 +28,53 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        login = findViewById(R.id.bLogin);
-        getEmail = findViewById(R.id.editText2);
-        getPassword = findViewById(R.id.editText3);
+        Button login = findViewById(R.id.bLogin);
+        Button signup = findViewById(R.id.button3);
+        final EditText mEmail = findViewById(R.id.editText2);
+        final EditText mPassword = findViewById(R.id.editText3);
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                    toastMessage("Signed in: " + user.getEmail());
+                } else {
+                    Log.d(TAG, "onAuthStateChanged:signed_out");
+
+                }
+            }
+        };
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String email = mEmail.getText().toString();
+                String pass = mPassword.getText().toString();
+                if (!email.equals("") && !pass.equals("")) {
+                    mAuth.signInWithEmailAndPassword(email, pass);
+                } else {
+                    toastMessage("É necessário preencher todos os campos.");
+                }
+
+            }
+        });
+
+        signup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, SignUp.class));
+            }
+        });
     }
 
-    public void get_email_password(){
-        String email = getEmail.getText().toString();
-        String password = getPassword.getText().toString();
-        Log.v("Got Email: ", email);
-        Log.v("Got Password: ", password);
-
+    private void toastMessage(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 
     public void onStart(){
         super.onStart();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-    }
-
-    public void initialize_login(final String email, final String password){
-        mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                Log.v("Email: ", email);
-                Log.v("Password: ", password);
-                if (task.isSuccessful()) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithEmail:success");
-                    FirebaseUser user = mAuth.getCurrentUser();
-                } else {
-                    // If sign in fails, display a message to the user.
-                    Log.w(TAG, "signInWithEmail:failure", task.getException());
-                }
-
-                // [START_EXCLUDE]
-                if (!task.isSuccessful()) {
-                    Log.v(TAG, "Opaaa");
-                }
-            }
-        });
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        int i = v.getId();
-        if(i == R.id.bLogin){
-            initialize_login(getEmail.getText().toString(), getPassword.getText().toString());
-        }
-        else if(i == R.id.button3){
-            startActivity(new Intent(Login.this, SignUp.class));
-        }
-
+        mAuth.addAuthStateListener(mAuthListener);
     }
 }
