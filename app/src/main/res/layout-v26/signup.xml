@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dingo.loginscreentryout.Login">
+    tools:context="com.example.dingo.loginscreentryout.SignUp"
+>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
@@ -18,29 +19,41 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintVertical_bias="0.471">
 
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="300dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
-            android:layout_alignParentTop="true"
+            android:layout_below="@+id/editText"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="22dp"
-            android:contentDescription="@string/findhomies"
-            app:srcCompat="@drawable/text" />
+            android:layout_marginTop="88dp"
+            app:srcCompat="@drawable/text"
+            tools:ignore="UnknownId" />
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/textView1"
             android:layout_width="230dp"
             android:layout_height="50dp"
             android:layout_alignLeft="@+id/textView3"
             android:layout_alignStart="@+id/textView3"
             android:layout_below="@+id/editText2"
-            android:layout_marginTop="17dp"
+            android:layout_marginTop="22dp"
             android:font="@font/futuralt"
-            android:text="Password"
+            android:text="confirm password"
+            android:textColor="#416BC1"
+            android:textSize="25sp" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="230dp"
+            android:layout_height="50dp"
+            android:layout_below="@+id/imageView"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="28dp"
+            android:font="@font/futuralt"
+            android:text="email"
             android:textColor="#416BC1"
             android:textSize="25sp" />
 
@@ -48,11 +61,12 @@
             android:id="@+id/textView3"
             android:layout_width="230dp"
             android:layout_height="50dp"
-            android:layout_below="@+id/imageView"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="13dp"
+            android:layout_alignLeft="@+id/textView2"
+            android:layout_alignStart="@+id/textView2"
+            android:layout_below="@+id/editText3"
+            android:layout_marginTop="15dp"
             android:font="@font/futuralt"
-            android:text="@string/username"
+            android:text="password"
             android:textColor="#416BC1"
             android:textSize="25sp" />
 
@@ -60,9 +74,9 @@
             android:id="@+id/editText2"
             android:layout_width="270dp"
             android:layout_height="45dp"
-            android:layout_alignTop="@+id/textView3"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="39dp"
+            android:layout_alignLeft="@+id/editText3"
+            android:layout_alignStart="@+id/editText3"
+            android:layout_below="@+id/textView3"
             android:background="@drawable/edit_color"
             android:ems="10"
             android:inputType="textPersonName"
@@ -72,22 +86,20 @@
             android:id="@+id/editText3"
             android:layout_width="270dp"
             android:layout_height="45dp"
-            android:layout_alignLeft="@+id/editText2"
-            android:layout_alignStart="@+id/editText2"
-            android:layout_alignTop="@+id/textView2"
-            android:layout_marginTop="39dp"
+            android:layout_below="@+id/textView2"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/edit_color"
             android:ems="10"
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/bLogin"
-            style="@style/Widget.AppCompat.Button.Borderless"
+            android:id="@+id/bContinue"
+            style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_below="@+id/editText3"
+            android:layout_height="40dp"
+            android:layout_below="@+id/editText5"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="27dp"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
             android:onClick="onClick"
@@ -95,7 +107,7 @@
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="1"
-            android:text="@string/login"
+            android:text="continue"
             android:textColor="#416BC1"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,58 +115,18 @@
             app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <ImageView
-            android:id="@+id/imageView2"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_alignLeft="@+id/bLogin"
-            android:layout_alignStart="@+id/bLogin"
-            android:layout_below="@+id/bLogin"
-            app:srcCompat="@drawable/or" />
-
-        <Button
-            android:id="@+id/fb"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:layout_below="@+id/imageView2"
-            android:layout_centerHorizontal="true"
-            android:background="#416BC1"
-            android:font="@font/futuralt"
-            android:text="Login with facebook"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="92dp"
-            tools:layout_editor_absoluteY="460dp" />
-
-
-        <TextView
-            android:id="@+id/signtext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/fb"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="43dp"
-            android:font="@font/futuralt"
-            android:text="If you don't have an account"
-            android:textColor="#FFFFFF"
-            android:textSize="17sp"
-            tools:layout_editor_absoluteX="17dp"
-            tools:layout_editor_absoluteY="525dp" />
-
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="140dp"
+        <EditText
+            android:id="@+id/editText5"
+            android:layout_width="270dp"
             android:layout_height="45dp"
-            android:layout_below="@+id/signtext"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/buttonshape"
-            android:font="@font/futuralt"
-            android:onClick="onClick"
-            android:text="Sign Up"
-            android:textColor="#416BC1"
-            android:textSize="17sp" />
+            android:layout_alignLeft="@+id/editText2"
+            android:layout_alignStart="@+id/editText2"
+            android:layout_below="@+id/textView1"
+            android:background="@drawable/edit_color"
+            android:ems="10" />
 
 
     </RelativeLayout>
+
 
 </android.support.constraint.ConstraintLayout>

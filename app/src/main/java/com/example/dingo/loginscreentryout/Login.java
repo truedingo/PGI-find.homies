@@ -5,13 +5,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -20,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity implements View.OnClickListener{
-
     private FirebaseAuth mAuth;
     Button login;
     EditText getEmail;
@@ -77,9 +72,14 @@ public class Login extends AppCompatActivity implements View.OnClickListener{
     }
 
     @Override
-    public void onClick(View view) {
-        get_email_password();
-        initialize_login(getEmail.getText().toString(), getPassword.getText().toString());
+    public void onClick(View v) {
+        int i = v.getId();
+        if(i == R.id.bLogin){
+            initialize_login(getEmail.getText().toString(), getPassword.getText().toString());
+        }
+        else if(i == R.id.button3){
+            startActivity(new Intent(Login.this, SignUp.class));
+        }
 
     }
 }

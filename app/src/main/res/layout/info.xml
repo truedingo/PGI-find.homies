@@ -75,9 +75,7 @@
             android:layout_alignStart="@+id/editText4"
             android:layout_alignTop="@+id/textView4"
             android:layout_marginTop="35dp"
-            android:background="@drawable/edit_color"
             android:font="@font/futuralt"
-            android:text="age"
             android:textColor="#416BC1"
             android:textSize="25sp" />
 
@@ -101,9 +99,7 @@
             android:layout_alignLeft="@+id/spinner"
             android:layout_alignStart="@+id/spinner"
             android:layout_below="@+id/textView5"
-            android:background="@drawable/edit_color"
-            android:font="@font/futuralt"
-            android:text="Faculdade"
+           android:font="@font/futuralt"
             android:textColor="#416BC1"
             android:textSize="25sp" />
 
@@ -127,9 +123,7 @@
             android:layout_alignLeft="@+id/spinner2"
             android:layout_alignStart="@+id/spinner2"
             android:layout_below="@+id/Curso"
-            android:background="@drawable/edit_color"
             android:font="@font/futuralt"
-            android:text="Faculdade"
             android:textColor="#416BC1"
             android:textSize="25sp" />
 
@@ -143,9 +137,9 @@
             android:layout_toRightOf="@+id/textView4"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
-            android:text="Sign Up"
+            android:text="continue"
             android:textColor="#416BC1"
-            android:textSize="25sp" />
+            android:textSize="15sp" />
 
 
     </RelativeLayout>

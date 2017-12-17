@@ -93,7 +93,7 @@
             android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/bLogin"
+            android:id="@+id/bContinue"
             style="@style/Widget.AppCompat.Button.Small"
             android:layout_width="150dp"
             android:layout_height="40dp"
@@ -102,11 +102,12 @@
             android:layout_marginTop="27dp"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
+            android:onClick="onClick"
             android:shadowColor="#809FA8"
             android:shadowDx="0"
             android:shadowDy="0"
             android:shadowRadius="1"
-            android:text="continue"
+            android:text="@string/Continue"
             android:textColor="#416BC1"
             android:textSize="25sp"
             app:layout_constraintBottom_toBottomOf="parent"
