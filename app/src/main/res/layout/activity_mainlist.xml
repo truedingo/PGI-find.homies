@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.dingo.loginscreentryout.Mainlist"
+    android:background="@drawable/gradient_color"
+    >
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="0dp"
+        android:layout_height="663dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/gradient_color"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/spinner4"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="35dp"
+            android:font="@font/futuralt"
+            android:text="homies encontrados"
+            android:textColor="#416BC1"
+            android:textSize="25sp"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="45dp"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <Spinner
+            android:id="@+id/spinner4"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/spinner5"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:background="@drawable/edit_color"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <Spinner
+            android:id="@+id/spinner5"
+            android:layout_width="130dp"
+            android:layout_height="40dp"
+
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="36dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="25dp"
+            android:layout_toEndOf="@+id/spinner4"
+            android:layout_toRightOf="@+id/spinner4"
+            android:background="@drawable/edit_color"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="174dp"
+            tools:layout_editor_absoluteY="16dp" />
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/textView7"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

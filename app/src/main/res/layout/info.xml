@@ -140,6 +140,7 @@
             android:layout_toRightOf="@+id/textView4"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
+            android:onClick="onClick"
             android:text="continue"
             android:textColor="#416BC1"
             android:textSize="15sp" />

@@ -1,29 +1,25 @@
 package com.example.dingo.loginscreentryout;
 
-import android.app.Activity;
-import android.app.Fragment;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.AdapterView.*;
 import android.widget.ArrayAdapter;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.Spinner;
+import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Dingo on 16/12/2017.
- */
+public class Mainlist extends AppCompatActivity {
 
-public class Info extends AppCompatActivity implements View.OnClickListener{
-
+    String [] nomes={"Ines","Maria","Carlos","Pedro"};
+    String [] ages={"17","20","18","21"};
+    String [] looking={"putas","putas","putas","putas"};
+    String [] wheres={"putas","putas","putas","putas"};
     String [] faculdades={"FDUC","FLUC","FCTUC","FEUC","FFUC","FPCEUC","FCDEFUC","FMUC"};
     String [] fctuc={"Geologia","Antropologia","Biologia","Bioquímica","Design e Multimédia","Engenharia Informática","Engenharia e Gestão Industrial","Física","Matemática","Química","Química Medicinal","Arquitetura","Engenharia Cívil","Engenharia do Ambiente","Engenharia Eletrotécnica","Engenharia Mecânica","Engenharia Química","Engenharia Biomédica","Engenharia Física"};
     String [] fmuc={"Medicina","Medicina Dentária"};
@@ -35,27 +31,18 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
     String [] fluc = {"Arqueologia","Ciência da Informação","Estudos Artísticos","Estudos Clássicos","Estudos Europeus","Filosofia","Geografia","História","História de Arte","Jornalismo e Comunicação","Línguas Modernas","Português","Turismo, Território e Patrimónios"};
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.info);
+        setContentView(R.layout.activity_mainlist);
         List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();
         final ArrayList<String> cursos= new ArrayList<String>();
         for (String s: faculdades)
             faculdade.add(s);
-        for (int i = 16; i <= 65; i++) {
-            age.add(Integer.toString(i));
-        }
-        ArrayAdapter<Integer> spinnerArrayAdapter = new ArrayAdapter<Integer>(
-                this, android.R.layout.simple_spinner_item, age);
-        spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
-        spinner.setAdapter(spinnerArrayAdapter);
-
         ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(
                 this, android.R.layout.simple_spinner_item, faculdade);
         spinnerArrayAdapter1.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-        final Spinner spinner1 = (Spinner)findViewById(R.id.spinner2);
+        final Spinner spinner1 = (Spinner)findViewById(R.id.spinner4);
         spinner1.setAdapter(spinnerArrayAdapter1);
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -97,9 +84,9 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
                         break;
                 }
                 ArrayAdapter<String> spinnerArrayAdapter2;
-                spinnerArrayAdapter2 = new ArrayAdapter<String>(Info.this, android.R.layout.simple_spinner_item, cursos);
+                spinnerArrayAdapter2 = new ArrayAdapter<String>(Mainlist.this, android.R.layout.simple_spinner_item, cursos);
                 spinnerArrayAdapter2.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-                Spinner spinner2 = (Spinner)findViewById(R.id.spinner3);
+                Spinner spinner2 = (Spinner)findViewById(R.id.spinner5);
                 spinner2.setAdapter(spinnerArrayAdapter2);
             }
 
@@ -110,15 +97,42 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
 
         });
 
-
     }
-    @Override
-    public void onClick(View view) {
-        int i = view.getId();
-        if(i==R.id.button2){
-            startActivity(new Intent(Info.this,Mainlist.class));
+
+
+
+
+
+    class CustomAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return 0;
         }
 
+        @Override
+        public Object getItem(int i) {
+            return null;
+        }
 
+        @Override
+        public long getItemId(int i) {
+            return 0;
+        }
+
+        @Override
+        public View getView(int i, View view, ViewGroup viewGroup) {
+            view=getLayoutInflater().inflate(R.layout.row,null);
+            TextView textview_nome=(TextView)view.findViewById(R.id.textView6);
+            TextView textview_age=(TextView)view.findViewById(R.id.textView8);
+            TextView textview_looking=(TextView)view.findViewById(R.id.textView11);
+            TextView textview_where=(TextView)view.findViewById(R.id.textView14);
+            textview_nome.setText(nomes[i]);
+            textview_age.setText(ages[i]);
+            textview_looking.setText(looking[i]);
+            textview_where.setText(wheres[i]);
+            return view;
+        }
     }
+
 }
