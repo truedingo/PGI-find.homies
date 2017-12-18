@@ -145,8 +145,11 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
                 String savedPassword = extras.getString("savedPassword");
                 String savedEmail = extras.getString("savedEmail");
                 mAuth.createUserWithEmailAndPassword(savedEmail, savedPassword);
-                toastMessage("Got email: " +savedEmail);
+                toastMessage("Account created: " +savedEmail);
                 startActivity(new Intent(Info.this, Mainlist.class));
+            }
+            else{
+                toastMessage("Something went wrong with account creation!");
             }
         }
 
