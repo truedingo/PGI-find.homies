@@ -55,12 +55,6 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
         EditText eAge = findViewById(R.id.editText4);
 
 
-        //Button
-
-
-
-
-
         List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();
         final ArrayList<String> cursos= new ArrayList<String>();
@@ -72,7 +66,7 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
         ArrayAdapter<Integer> spinnerArrayAdapter = new ArrayAdapter<Integer>(
                 this, android.R.layout.simple_spinner_item, age);
         spinnerArrayAdapter.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-        Spinner spinner = (Spinner)findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner)findViewById(R.id.spinner);
         spinner.setAdapter(spinnerArrayAdapter);
 
         ArrayAdapter<String> spinnerArrayAdapter1 = new ArrayAdapter<String>(
@@ -125,6 +119,9 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
                 spinnerArrayAdapter2.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
                 Spinner spinner2 = (Spinner)findViewById(R.id.spinner3);
                 spinner2.setAdapter(spinnerArrayAdapter2);
+
+                String faculdade = spinner1.getSelectedItem().toString();
+                String curso = spinner2.getSelectedItem().toString();
             }
 
             @Override
