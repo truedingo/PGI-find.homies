@@ -51,6 +51,21 @@
             tools:layout_editor_absoluteX="16dp"
             tools:layout_editor_absoluteY="16dp" />
 
+        <Button
+            android:id="@+id/signoutButton"
+            android:layout_width="140dp"
+            android:layout_height="45dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="98dp"
+            android:background="@drawable/buttonshape"
+            android:font="@font/futuralt"
+            android:onClick="onClick"
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            android:textColor="#416BC1"
+            android:textSize="17sp" />
+
         <Spinner
             android:id="@+id/spinner5"
             android:layout_width="130dp"
@@ -66,16 +81,6 @@
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="174dp"
             tools:layout_editor_absoluteY="16dp" />
-
-        <Button
-            android:id="@+id/signoutButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="113dp"
-            android:onClick="onClick"
-            android:text="Sign Out" />
 
     </RelativeLayout>
 

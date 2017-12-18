@@ -42,10 +42,6 @@ public class Login extends AppCompatActivity {
                     Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
                     toastMessage("Signed in: " + user.getEmail());
                     startActivity(new Intent(Login.this, Mainlist.class));
-                } else {
-                    Log.d(TAG, "onAuthStateChanged:signed_out");
-                    toastMessage("Signed out");
-
                 }
             }
         };

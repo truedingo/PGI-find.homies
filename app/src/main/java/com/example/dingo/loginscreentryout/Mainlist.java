@@ -1,8 +1,10 @@
 package com.example.dingo.loginscreentryout;
 
 import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -25,6 +27,8 @@ import com.google.firebase.auth.FirebaseUser;
 public class Mainlist extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
+    private final static String TAG = "Login";
     String[] nomes = {"Ines", "Maria", "Carlos", "Pedro"};
     String[] ages = {"17", "20", "18", "21"};
     String[] looking = {"putas", "putas", "putas", "putas"};
@@ -44,6 +48,7 @@ public class Mainlist extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         mAuth = FirebaseAuth.getInstance();
+
 
         setContentView(R.layout.activity_mainlist);
         List age = new ArrayList<Integer>();
@@ -100,6 +105,17 @@ public class Mainlist extends AppCompatActivity {
                 spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                 Spinner spinner2 = (Spinner) findViewById(R.id.spinner5);
                 spinner2.setAdapter(spinnerArrayAdapter2);
+
+                mAuthListener = new FirebaseAuth.AuthStateListener() {
+                    @Override
+                    public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                        FirebaseUser user = firebaseAuth.getCurrentUser();
+                        if(user == null){
+                            Log.d(TAG, "onAuthStateChanged:signed_in:" + user.getUid());
+                            toastMessage("Signed out");
+                        }
+                    }
+                };
             }
 
             @Override
