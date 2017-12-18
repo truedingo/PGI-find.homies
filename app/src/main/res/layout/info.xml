@@ -141,7 +141,7 @@
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
             android:onClick="onClick"
-            android:text="continue"
+            android:text="Sign Up"
             android:textColor="#416BC1"
             android:textSize="15sp" />
 

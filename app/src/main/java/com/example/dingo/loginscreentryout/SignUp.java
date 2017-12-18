@@ -41,7 +41,10 @@ public class SignUp extends AppCompatActivity {
                 String confPassword = cPassword.getText().toString();
                 if(!savedEmail.equals("") && !savedPassword.equals("") && !confPassword.equals("")){
                     if(savedPassword.equals(confPassword)){
-                        startActivity(new Intent(SignUp.this, Info.class));
+                        Intent sender = new Intent(SignUp.this, Info.class);
+                        sender.putExtra("savedPassword", savedPassword);
+                        sender.putExtra("savedEmail", savedEmail);
+                        startActivity(sender);
                     }
                     else{
                         toastMessage("As passwords precisam de ser iguais!");
@@ -53,14 +56,6 @@ public class SignUp extends AppCompatActivity {
             }
         });
 
-    }
-
-    public String getSavedEmail(){
-        return this.savedPassword;
-    }
-
-    public String getSavedPassword(){
-        return this.savedPassword;
     }
 
     private void toastMessage(String s) {

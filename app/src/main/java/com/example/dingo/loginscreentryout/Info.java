@@ -6,11 +6,16 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.*;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
+import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -18,11 +23,15 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Created by Dingo on 16/12/2017.
  */
 
 public class Info extends AppCompatActivity implements View.OnClickListener{
+
+    private FirebaseAuth mAuth;
+    private final static String TAG = "Email/Password";
 
     String [] faculdades={"FDUC","FLUC","FCTUC","FEUC","FFUC","FPCEUC","FCDEFUC","FMUC"};
     String [] fctuc={"Geologia","Antropologia","Biologia","Bioquímica","Design e Multimédia","Engenharia Informática","Engenharia e Gestão Industrial","Física","Matemática","Química","Química Medicinal","Arquitetura","Engenharia Cívil","Engenharia do Ambiente","Engenharia Eletrotécnica","Engenharia Mecânica","Engenharia Química","Engenharia Biomédica","Engenharia Física"};
@@ -38,6 +47,20 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.info);
+
+        mAuth = FirebaseAuth.getInstance();
+
+        //Text
+        EditText name = findViewById(R.id.editText5);
+        EditText eAge = findViewById(R.id.editText4);
+
+
+        //Button
+
+
+
+
+
         List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();
         final ArrayList<String> cursos= new ArrayList<String>();
@@ -96,6 +119,7 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
                             cursos.add(s);
                         break;
                 }
+                java.util.Collections.sort(cursos);
                 ArrayAdapter<String> spinnerArrayAdapter2;
                 spinnerArrayAdapter2 = new ArrayAdapter<String>(Info.this, android.R.layout.simple_spinner_item, cursos);
                 spinnerArrayAdapter2.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
@@ -115,10 +139,22 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
     @Override
     public void onClick(View view) {
         int i = view.getId();
-        if(i==R.id.button2){
-            startActivity(new Intent(Info.this,Mainlist.class));
+        if(i==R.id.button2) {
+            Bundle extras = getIntent().getExtras();
+            if(extras != null) {
+                String savedPassword = extras.getString("savedPassword");
+                String savedEmail = extras.getString("savedEmail");
+                mAuth.createUserWithEmailAndPassword(savedEmail, savedPassword);
+                toastMessage("Got email: " +savedEmail);
+                startActivity(new Intent(Info.this, Mainlist.class));
+            }
         }
 
 
     }
+
+    private void toastMessage(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
 }

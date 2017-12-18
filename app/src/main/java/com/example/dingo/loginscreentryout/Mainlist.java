@@ -100,6 +100,7 @@ public class Mainlist extends AppCompatActivity {
                             cursos.add(s);
                         break;
                 }
+                java.util.Collections.sort(cursos);
                 ArrayAdapter<String> spinnerArrayAdapter2;
                 spinnerArrayAdapter2 = new ArrayAdapter<String>(Mainlist.this, android.R.layout.simple_spinner_item, cursos);
                 spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
