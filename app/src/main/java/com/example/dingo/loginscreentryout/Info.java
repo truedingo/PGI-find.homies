@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -18,6 +19,12 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -28,10 +35,16 @@ import java.util.List;
  * Created by Dingo on 16/12/2017.
  */
 
-public class Info extends AppCompatActivity implements View.OnClickListener{
+public class Info extends AppCompatActivity{
+
 
     private FirebaseAuth mAuth;
+    private FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "Email/Password";
+
+    //Database
+    private FirebaseDatabase mFirebaseDatabase;
+    private DatabaseReference myRef;
 
     String [] faculdades={"FDUC","FLUC","FCTUC","FEUC","FFUC","FPCEUC","FCDEFUC","FMUC"};
     String [] fctuc={"Geologia","Antropologia","Biologia","Bioquímica","Design e Multimédia","Engenharia Informática","Engenharia e Gestão Industrial","Física","Matemática","Química","Química Medicinal","Arquitetura","Engenharia Cívil","Engenharia do Ambiente","Engenharia Eletrotécnica","Engenharia Mecânica","Engenharia Química","Engenharia Biomédica","Engenharia Física"};
@@ -49,10 +62,36 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
         setContentView(R.layout.info);
 
         mAuth = FirebaseAuth.getInstance();
+        mFirebaseDatabase = FirebaseDatabase.getInstance();
+        myRef = mFirebaseDatabase.getReference();
+
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+
+            }
+        };
+
+        // Read from the database
+        myRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // This method is called once with the initial value and again
+                // whenever data at this location is updated.
+                Object value = dataSnapshot.getValue();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed to read value
+                Log.w(TAG, "Failed to read value.", error.toException());
+            }
+        });
 
         //Text
-        EditText name = findViewById(R.id.editText5);
-        EditText eAge = findViewById(R.id.editText4);
+        final EditText name = findViewById(R.id.editText4);
+
+        final Button createAcc = findViewById(R.id.button2);
 
 
         List age = new ArrayList<Integer>();
@@ -74,6 +113,7 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
         spinnerArrayAdapter1.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
         final Spinner spinner1 = (Spinner)findViewById(R.id.spinner2);
         spinner1.setAdapter(spinnerArrayAdapter1);
+        final Spinner spinner2 = (Spinner)findViewById(R.id.spinner3);
         spinner1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -117,44 +157,48 @@ public class Info extends AppCompatActivity implements View.OnClickListener{
                 ArrayAdapter<String> spinnerArrayAdapter2;
                 spinnerArrayAdapter2 = new ArrayAdapter<String>(Info.this, android.R.layout.simple_spinner_item, cursos);
                 spinnerArrayAdapter2.setDropDownViewResource( android.R.layout.simple_spinner_dropdown_item );
-                Spinner spinner2 = (Spinner)findViewById(R.id.spinner3);
                 spinner2.setAdapter(spinnerArrayAdapter2);
-
-                String faculdade = spinner1.getSelectedItem().toString();
-                String curso = spinner2.getSelectedItem().toString();
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parentView) {
-                // your code here
+            public void onNothingSelected(AdapterView<?> parentView){
             }
 
         });
 
-
-    }
-    @Override
-    public void onClick(View view) {
-        int i = view.getId();
-        if(i==R.id.button2) {
-            Bundle extras = getIntent().getExtras();
-            if(extras != null) {
-                String savedPassword = extras.getString("savedPassword");
-                String savedEmail = extras.getString("savedEmail");
-                mAuth.createUserWithEmailAndPassword(savedEmail, savedPassword);
-                toastMessage("Account created: " +savedEmail);
-                startActivity(new Intent(Info.this, Mainlist.class));
+        createAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle extras = getIntent().getExtras();
+                if(extras != null) {
+                    String savedPassword = extras.getString("savedPassword");
+                    String savedEmail = extras.getString("savedEmail");
+                    mAuth.createUserWithEmailAndPassword(savedEmail, savedPassword);
+                    toastMessage("Account created: " +savedEmail);
+                }
+                else{
+                    toastMessage("Something went wrong with account creation!");
+                }
+            String selectedFaculdade = spinner1.getSelectedItem().toString();
+            String selectedCurso = spinner2.getSelectedItem().toString();
+            String selectedAge = spinner.getSelectedItem().toString();
+            String selectedName = name.getText().toString();
+            //FirebaseUser user = mAuth.getCurrentUser();
+            //String userID = user.getUid();
+            myRef.setValue(selectedCurso);
+            startActivity(new Intent(Info.this, Mainlist.class));
             }
-            else{
-                toastMessage("Something went wrong with account creation!");
-            }
-        }
+        });
 
 
     }
 
     private void toastMessage(String s) {
         Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
+    }
+
+    public void onStart(){
+        super.onStart();
     }
 
 }

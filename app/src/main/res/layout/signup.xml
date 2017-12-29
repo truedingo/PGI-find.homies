@@ -90,7 +90,7 @@
             android:layout_centerHorizontal="true"
             android:background="@drawable/edit_color"
             android:ems="10"
-            android:inputType="textPassword" />
+            android:inputType="textEmailAddress" />
 
         <Button
             android:id="@+id/bContinue"
