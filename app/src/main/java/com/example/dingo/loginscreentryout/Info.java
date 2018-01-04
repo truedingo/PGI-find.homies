@@ -39,8 +39,8 @@ public class Info extends AppCompatActivity{
 
 
     private FirebaseAuth mAuth;
-    private FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "Email/Password";
+    private FirebaseAuth.AuthStateListener mAuthListener;
 
     //Database
     private FirebaseDatabase mFirebaseDatabase;
@@ -64,13 +64,6 @@ public class Info extends AppCompatActivity{
         mAuth = FirebaseAuth.getInstance();
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         myRef = mFirebaseDatabase.getReference();
-
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-
-            }
-        };
 
         // Read from the database
         myRef.addValueEventListener(new ValueEventListener() {
@@ -174,23 +167,41 @@ public class Info extends AppCompatActivity{
                     String savedPassword = extras.getString("savedPassword");
                     String savedEmail = extras.getString("savedEmail");
                     mAuth.createUserWithEmailAndPassword(savedEmail, savedPassword);
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                     toastMessage("Account created: " +savedEmail);
                 }
                 else{
                     toastMessage("Something went wrong with account creation!");
                 }
-            String selectedFaculdade = spinner1.getSelectedItem().toString();
-            String selectedCurso = spinner2.getSelectedItem().toString();
-            String selectedAge = spinner.getSelectedItem().toString();
-            String selectedName = name.getText().toString();
-            //FirebaseUser user = mAuth.getCurrentUser();
-            //String userID = user.getUid();
-            myRef.setValue(selectedCurso);
-            startActivity(new Intent(Info.this, Mainlist.class));
+                mAuth.addAuthStateListener(mAuthListener);
             }
         });
 
-
+        mAuthListener = new FirebaseAuth.AuthStateListener() {
+            @Override
+            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
+                FirebaseUser user = firebaseAuth.getCurrentUser();
+                if (user != null) {
+                    String selectedFaculdade = spinner1.getSelectedItem().toString();
+                    String selectedCurso = spinner2.getSelectedItem().toString();
+                    String selectedAge = spinner.getSelectedItem().toString();
+                    String selectedName = name.getText().toString();
+                    Log.i(TAG, String.valueOf(user));
+                    Log.i(TAG, String.valueOf(user));
+                    String userID = user.getUid();
+                    myRef.child("users").push().setValue(userID);
+                    startActivity(new Intent(Info.this, Mainlist.class));
+                }
+                else{
+                    mAuth.removeAuthStateListener(mAuthListener);
+                    startActivity(new Intent(Info.this, Login.class));
+                }
+            }
+        };
     }
 
     private void toastMessage(String s) {
