@@ -1,87 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.dingo.loginscreentryout.Mainlist"
-    android:background="@drawable/gradient_color"
-    >
+    android:orientation="vertical">
 
-    <RelativeLayout
-        android:id="@+id/relativeLayout"
-        android:layout_width="0dp"
-        android:layout_height="663dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/gradient_color"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
 
-        <TextView
-            android:id="@+id/textView7"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/spinner4"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="35dp"
-            android:font="@font/futuralt"
-            android:text="homies encontrados"
-            android:textColor="#416BC1"
-            android:textSize="25sp"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="45dp"
-            tools:layout_editor_absoluteY="73dp" />
+    <Spinner
+        android:id="@+id/spinner4"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/edit_color" />
 
-        <Spinner
-            android:id="@+id/spinner4"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
+    <Spinner
+        android:id="@+id/spinner5"
+        android:layout_width="130dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/edit_color" />
 
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/spinner5"
-            android:layout_marginLeft="48dp"
-            android:layout_marginStart="48dp"
-            android:background="@drawable/edit_color"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="16dp"
-            tools:layout_editor_absoluteY="16dp" />
 
-        <Button
-            android:id="@+id/signoutButton"
-            android:layout_width="140dp"
-            android:layout_height="45dp"
-            android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginBottom="98dp"
-            android:background="@drawable/buttonshape"
-            android:font="@font/futuralt"
-            android:onClick="onClick"
-            android:text="Sign Out"
-            android:textAllCaps="false"
-            android:textColor="#416BC1"
-            android:textSize="17sp" />
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginTop="10dp"
+        android:font="@font/futuralt"
+        android:text="homies encontrados"
+        android:textColor="#416BC1"
+        android:textSize="25sp" />
 
-        <Spinner
-            android:id="@+id/spinner5"
-            android:layout_width="130dp"
-            android:layout_height="40dp"
 
-            android:layout_alignParentTop="true"
-            android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="25dp"
-            android:layout_toEndOf="@+id/spinner4"
-            android:layout_toRightOf="@+id/spinner4"
-            android:background="@drawable/edit_color"
-            tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="174dp"
-            tools:layout_editor_absoluteY="16dp" />
 
-    </RelativeLayout>
+    <ListView
+        android:id="@+id/listview1"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:divider="#dae2ef"
+        android:dividerHeight="10dp"></ListView>
 
-</android.support.constraint.ConstraintLayout>
+    <Button
+        android:id="@+id/signoutButton"
+        android:layout_width="150dp"
+        android:layout_height="45dp"
+        android:background="@drawable/buttonshape"
+        android:font="@font/futuralt"
+        android:onClick="onClick"
+        android:text="Sign Out"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textAllCaps="false"
+        android:textColor="#416BC1"
+        android:textSize="17sp" />
+
+</LinearLayout>
+
+

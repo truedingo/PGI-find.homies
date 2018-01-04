@@ -1,5 +1,6 @@
 package com.example.dingo.loginscreentryout;
 
+import android.content.Context;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -19,6 +19,7 @@ import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.List;
 
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -26,6 +27,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Mainlist extends AppCompatActivity {
 
+    private ListView lvProduct;
+    private CustomAdapter adapter;
+    private List<user> mProductList;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "Login";
@@ -51,6 +55,14 @@ public class Mainlist extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_mainlist);
+        lvProduct = findViewById(R.id.listview1);
+        mProductList = new ArrayList<>();        //Add sample data for list
+        //We can get data from DB, webservice here
+        mProductList.add(new user(1, "iPhone4", "Direito"));
+        Context c=getApplicationContext();
+        adapter = new CustomAdapter(c,mProductList);
+        lvProduct.setAdapter(adapter);
+
         List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();
         final ArrayList<String> cursos = new ArrayList<String>();
@@ -107,6 +119,7 @@ public class Mainlist extends AppCompatActivity {
                 Spinner spinner2 = (Spinner) findViewById(R.id.spinner5);
                 spinner2.setAdapter(spinnerArrayAdapter2);
 
+
                 mAuthListener = new FirebaseAuth.AuthStateListener() {
                     @Override
                     public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -139,35 +152,4 @@ public class Mainlist extends AppCompatActivity {
         startActivity(new Intent(Mainlist.this, Login.class));
     }
 
-    class CustomAdapter extends BaseAdapter {
-
-        @Override
-        public int getCount() {
-            return 0;
-        }
-
-        @Override
-        public Object getItem(int i) {
-            return null;
-        }
-
-        @Override
-        public long getItemId(int i) {
-            return 0;
-        }
-
-        @Override
-        public View getView(int i, View view, ViewGroup viewGroup) {
-            view = getLayoutInflater().inflate(R.layout.row, null);
-            TextView textview_nome = (TextView) view.findViewById(R.id.textView6);
-            TextView textview_age = (TextView) view.findViewById(R.id.textView8);
-            TextView textview_looking = (TextView) view.findViewById(R.id.textView11);
-            TextView textview_where = (TextView) view.findViewById(R.id.textView14);
-            textview_nome.setText(nomes[i]);
-            textview_age.setText(ages[i]);
-            textview_looking.setText(looking[i]);
-            textview_where.setText(wheres[i]);
-            return view;
-        }
-    }
 }
