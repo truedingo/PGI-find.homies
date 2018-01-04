@@ -47,7 +47,7 @@ public class CustomAdapter extends BaseAdapter {
         tvDescription.setText(mProductList.get(position).getCurso());
 
         //Save product id to tag
-        v.setTag(mProductList.get(position).getIdade());
+        v.setTag(mProductList.get(position).getAge());
 
         return v;
     }

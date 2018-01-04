@@ -55,13 +55,13 @@ public class Mainlist extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_mainlist);
-        lvProduct = findViewById(R.id.listview1);
+//        lvProduct = findViewById(R.id.listview1);
         mProductList = new ArrayList<>();        //Add sample data for list
         //We can get data from DB, webservice here
-        mProductList.add(new user(1, "iPhone4", "Direito"));
+        //mProductList.add(new user(1, "iPhone4", "Direito"));
         Context c=getApplicationContext();
         adapter = new CustomAdapter(c,mProductList);
-        lvProduct.setAdapter(adapter);
+        /*lvProduct.setAdapter(adapter);*/
 
         List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();

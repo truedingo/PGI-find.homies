@@ -184,16 +184,15 @@ public class Info extends AppCompatActivity{
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
+                FirebaseUser authUser = firebaseAuth.getCurrentUser();
+                if (authUser != null) {
                     String selectedFaculdade = spinner1.getSelectedItem().toString();
                     String selectedCurso = spinner2.getSelectedItem().toString();
                     String selectedAge = spinner.getSelectedItem().toString();
                     String selectedName = name.getText().toString();
-                    Log.i(TAG, String.valueOf(user));
-                    Log.i(TAG, String.valueOf(user));
-                    String userID = user.getUid();
-                    myRef.child("users").push().setValue(userID);
+                    String userID = authUser.getUid();
+                    user newUser = new user(selectedName, authUser.getEmail(), selectedFaculdade, selectedCurso, selectedAge);
+                    myRef.child("users").child(userID).setValue(newUser);
                     startActivity(new Intent(Info.this, Mainlist.class));
                 }
                 else{
