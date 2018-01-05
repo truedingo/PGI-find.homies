@@ -26,17 +26,9 @@ import com.google.firebase.auth.FirebaseUser;
 
 
 public class Mainlist extends AppCompatActivity {
-
-    private ListView lvProduct;
-    private CustomAdapter adapter;
-    private List<user> mProductList;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     private final static String TAG = "Login";
-    String[] nomes = {"Ines", "Maria", "Carlos", "Pedro"};
-    String[] ages = {"17", "20", "18", "21"};
-    String[] looking = {"putas", "putas", "putas", "putas"};
-    String[] wheres = {"putas", "putas", "putas", "putas"};
     String[] faculdades = {"FDUC", "FLUC", "FCTUC", "FEUC", "FFUC", "FPCEUC", "FCDEFUC", "FMUC"};
     String[] fctuc = {"Geologia", "Antropologia", "Biologia", "Bioquímica", "Design e Multimédia", "Engenharia Informática", "Engenharia e Gestão Industrial", "Física", "Matemática", "Química", "Química Medicinal", "Arquitetura", "Engenharia Cívil", "Engenharia do Ambiente", "Engenharia Eletrotécnica", "Engenharia Mecânica", "Engenharia Química", "Engenharia Biomédica", "Engenharia Física"};
     String[] fmuc = {"Medicina", "Medicina Dentária"};
@@ -55,15 +47,6 @@ public class Mainlist extends AppCompatActivity {
 
 
         setContentView(R.layout.activity_mainlist);
-//        lvProduct = findViewById(R.id.listview1);
-        mProductList = new ArrayList<>();        //Add sample data for list
-        //We can get data from DB, webservice here
-        //mProductList.add(new user(1, "iPhone4", "Direito"));
-        Context c=getApplicationContext();
-        adapter = new CustomAdapter(c,mProductList);
-        /*lvProduct.setAdapter(adapter);*/
-
-        List age = new ArrayList<Integer>();
         List faculdade = new ArrayList<String>();
         final ArrayList<String> cursos = new ArrayList<String>();
         for (String s : faculdades)
@@ -146,10 +129,17 @@ public class Mainlist extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        mAuth.getCurrentUser();
-        mAuth.signOut();
-        toastMessage("Signed out");
-        startActivity(new Intent(Mainlist.this, Login.class));
+        int id=view.getId();
+        if (id==R.id.search){
+            startActivity(new Intent(Mainlist.this, ListActivity.class));
+        }
+        else{
+            mAuth.getCurrentUser();
+            mAuth.signOut();
+            toastMessage("Signed out");
+            startActivity(new Intent(Mainlist.this, Login.class));
+        }
+
     }
 
 }
