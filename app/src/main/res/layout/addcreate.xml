@@ -76,7 +76,7 @@
             android:layout_marginLeft="55dp"
             android:layout_marginTop="10dp"
             android:font="@font/futuralt"
-            android:text="Observações"
+            android:text="Observações (opcional)"
             android:textColor="@android:color/background_light"
             android:textSize="20sp" />
 
@@ -112,7 +112,7 @@
             />
 
         <Button
-            android:id="@+id/signoutButton"
+            android:id="@+id/criar"
             android:layout_width="wrap_content"
             android:layout_height="45dp"
             android:background="@drawable/buttonshape"

@@ -6,15 +6,25 @@ package com.example.dingo.loginscreentryout;
 
 public class pedido {
     private String searching;
+    private String userid;
     private String where;
     private String obs;
     private String idealHomies;
 
-    public pedido(String searching, String where, String obs, String idealHomies) {
+    public pedido(String searching, String userid, String where, String obs, String idealHomies) {
         this.searching = searching;
+        this.userid = userid;
         this.where = where;
         this.obs = obs;
         this.idealHomies = idealHomies;
+    }
+
+    public String getUserid() {
+        return userid;
+    }
+
+    public void setUserid(String userid) {
+        this.userid = userid;
     }
 
     public String getSearching() {

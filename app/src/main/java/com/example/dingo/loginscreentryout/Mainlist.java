@@ -38,7 +38,7 @@ public class Mainlist extends AppCompatActivity {
     String[] ffuc = {"Farmácia Biomédica", "Ciências Bioanalíticas", "Ciências Farmacêuticas"};
     String[] fduc = {"Direito", "Administração Público-Privada"};
     String[] fluc = {"Arqueologia", "Ciência da Informação", "Estudos Artísticos", "Estudos Clássicos", "Estudos Europeus", "Filosofia", "Geografia", "História", "História de Arte", "Jornalismo e Comunicação", "Línguas Modernas", "Português", "Turismo, Território e Patrimónios"};
-
+    private  String savedCurso;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,8 +99,20 @@ public class Mainlist extends AppCompatActivity {
                 ArrayAdapter<String> spinnerArrayAdapter2;
                 spinnerArrayAdapter2 = new ArrayAdapter<String>(Mainlist.this, android.R.layout.simple_spinner_item, cursos);
                 spinnerArrayAdapter2.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                Spinner spinner2 = (Spinner) findViewById(R.id.spinner5);
+                final Spinner spinner2 = (Spinner) findViewById(R.id.spinner5);
                 spinner2.setAdapter(spinnerArrayAdapter2);
+                spinner2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                        savedCurso = spinner2.getSelectedItem().toString();
+                        toastMessage(savedCurso);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
 
 
                 mAuthListener = new FirebaseAuth.AuthStateListener() {
@@ -131,7 +143,9 @@ public class Mainlist extends AppCompatActivity {
     public void onClick(View view) {
         int id=view.getId();
         if (id==R.id.search){
-            startActivity(new Intent(Mainlist.this, ListActivity.class));
+            Intent sender = new Intent(Mainlist.this, ListActivity.class);
+            sender.putExtra("savedCurso",savedCurso);
+            startActivity(sender);
         }
         else if (id==R.id.signoutButton){
             mAuth.getCurrentUser();

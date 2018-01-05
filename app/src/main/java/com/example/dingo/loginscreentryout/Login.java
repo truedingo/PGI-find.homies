@@ -28,7 +28,7 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-
+        Button about= findViewById(R.id.about);
         Button login = findViewById(R.id.bLogin);
         Button signup = findViewById(R.id.button3);
         final EditText mEmail = findViewById(R.id.editText2);
@@ -66,6 +66,15 @@ public class Login extends AppCompatActivity {
                 startActivity(new Intent(Login.this, SignUp.class));
             }
         });
+
+        about.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Login.this, aboutActivity.class));
+            }
+        });
+
+
     }
 
     private void toastMessage(String s) {

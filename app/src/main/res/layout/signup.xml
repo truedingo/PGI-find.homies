@@ -122,6 +122,7 @@
             android:layout_alignLeft="@+id/editText2"
             android:layout_alignStart="@+id/editText2"
             android:layout_below="@+id/textView1"
+            android:inputType="textPassword"
             android:background="@drawable/edit_color"
             android:ems="10" />
 

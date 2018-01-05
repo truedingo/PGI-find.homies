@@ -90,7 +90,6 @@
             android:layout_marginTop="19dp"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
-            android:onClick="onClick"
             android:shadowColor="#809FA8"
             android:shadowDx="0"
             android:shadowDy="0"
@@ -140,11 +139,19 @@
             android:layout_marginTop="14dp"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
-            android:onClick="onClick"
             android:text="Sign Up"
             android:textAllCaps="false"
             android:textColor="#416BC1"
             android:textSize="17sp" />
+
+        <Button
+            android:id="@+id/about"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:layout_below="@+id/button3"
+            android:layout_toLeftOf="@+id/textView2"
+            android:layout_toStartOf="@+id/textView2"
+            android:background="@drawable/i" />
 
 
     </RelativeLayout>
