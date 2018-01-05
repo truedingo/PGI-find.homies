@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -23,6 +24,7 @@ public class ListActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             String savedCurso = extras.getString("savedCurso");
+            toastMessage(savedCurso);
         }
         ListView listView=findViewById(R.id.listview);
         CustomAdapter customAdapter=new CustomAdapter();
@@ -53,5 +55,8 @@ public class ListActivity extends AppCompatActivity {
             tv.setText(fctuc[i]);
             return view;
         }
+    }
+    private void toastMessage(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 }

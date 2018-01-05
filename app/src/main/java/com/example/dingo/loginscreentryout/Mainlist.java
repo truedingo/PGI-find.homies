@@ -147,6 +147,11 @@ public class Mainlist extends AppCompatActivity {
             sender.putExtra("savedCurso",savedCurso);
             startActivity(sender);
         }
+        else if(id==R.id.searchall){
+            Intent sender = new Intent(Mainlist.this, ListActivity.class);
+            sender.putExtra("savedCurso","Todos os cursos");
+            startActivity(sender);
+        }
         else if (id==R.id.signoutButton){
             mAuth.getCurrentUser();
             mAuth.signOut();
