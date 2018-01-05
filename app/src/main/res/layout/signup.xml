@@ -73,13 +73,13 @@
         <EditText
             android:id="@+id/editText2"
             android:layout_width="270dp"
+            android:inputType="textPassword"
             android:layout_height="45dp"
             android:layout_alignLeft="@+id/editText3"
             android:layout_alignStart="@+id/editText3"
             android:layout_below="@+id/textView3"
             android:background="@drawable/edit_color"
             android:ems="10"
-            android:inputType="textPersonName"
             android:radius="35dp" />
 
         <EditText
@@ -102,7 +102,6 @@
             android:layout_marginTop="27dp"
             android:background="@drawable/buttonshape"
             android:font="@font/futuralt"
-            android:onClick="onClick"
             android:shadowColor="#809FA8"
             android:shadowDx="0"
             android:shadowDy="0"
