@@ -36,7 +36,7 @@
             android:font="@font/futuralt"
             android:text="O que procuras?"
             android:textColor="@android:color/background_light"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/what"
@@ -57,7 +57,7 @@
             android:font="@font/futuralt"
             android:text="Onde?"
             android:textColor="@android:color/background_light"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/where"
@@ -78,7 +78,7 @@
             android:font="@font/futuralt"
             android:text="Observações"
             android:textColor="@android:color/background_light"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/ob"
@@ -99,7 +99,7 @@
             android:font="@font/futuralt"
             android:text="Homies ideiais:"
             android:textColor="@android:color/background_light"
-            android:textSize="25sp" />
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/ideal"
@@ -110,6 +110,20 @@
             android:background="@drawable/edit_color2"
             android:inputType="textPersonName"
             />
+
+        <Button
+            android:id="@+id/signoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:background="@drawable/buttonshape"
+            android:font="@font/futuralt"
+            android:onClick="onClick"
+            android:text="criar anúncio"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="bottom|center_horizontal"
+            android:textAllCaps="false"
+            android:textColor="#416BC1"
+            android:textSize="17sp" />
 
 
     </LinearLayout>

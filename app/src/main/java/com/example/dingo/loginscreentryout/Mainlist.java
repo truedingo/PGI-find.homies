@@ -133,11 +133,15 @@ public class Mainlist extends AppCompatActivity {
         if (id==R.id.search){
             startActivity(new Intent(Mainlist.this, ListActivity.class));
         }
-        else{
+        else if (id==R.id.signoutButton){
             mAuth.getCurrentUser();
             mAuth.signOut();
             toastMessage("Signed out");
             startActivity(new Intent(Mainlist.this, Login.class));
+        }
+        else if(id==R.id.create){
+            startActivity(new Intent(Mainlist.this, addActivity.class));
+
         }
 
     }

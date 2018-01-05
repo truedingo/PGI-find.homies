@@ -108,32 +108,19 @@
             android:id="@+id/imageView2"
             android:layout_width="150dp"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:layout_alignLeft="@+id/bLogin"
             android:layout_alignStart="@+id/bLogin"
             android:layout_below="@+id/bLogin"
             app:srcCompat="@drawable/or" />
 
-        <Button
-            android:id="@+id/fb"
-            android:layout_width="200dp"
-            android:layout_height="35dp"
-            android:layout_below="@+id/imageView2"
-            android:layout_centerHorizontal="true"
-            android:background="#416BC1"
-            android:font="@font/futuralt"
-            android:text="Sign Up with facebook"
-            android:textColor="#ffffff"
-            android:textAllCaps="false"
-            android:textStyle="bold"
-            tools:layout_editor_absoluteX="92dp"
-            tools:layout_editor_absoluteY="460dp" />
 
 
         <TextView
             android:id="@+id/signtext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/fb"
+            android:layout_below="@+id/imageView2"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="22dp"
             android:font="@font/futuralt"

@@ -21,7 +21,8 @@
         <activity android:name=".Info" />
         <activity android:name=".SignUp" />
         <activity android:name=".Mainlist" />
-        <activity android:name=".ListActivity"></activity>
+        <activity android:name=".ListActivity" />
+        <activity android:name=".addActivity"></activity>
     </application>
 
 </manifest>
