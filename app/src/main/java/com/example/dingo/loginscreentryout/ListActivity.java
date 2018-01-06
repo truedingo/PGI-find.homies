@@ -45,6 +45,7 @@ public class ListActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             savedCurso = extras.getString("savedCurso");
+            toastMessage(savedCurso);
         }
         ListView listView=findViewById(R.id.listview);
         CustomAdapter customAdapter=new CustomAdapter();
@@ -117,12 +118,10 @@ public class ListActivity extends AppCompatActivity {
             return view;
         }
     }
-
-    private void toastMessage(String s) {
-        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
-    }
-
     public void onStart() {
         super.onStart();
+    }
+    private void toastMessage(String s) {
+        Toast.makeText(this, s, Toast.LENGTH_SHORT).show();
     }
 }

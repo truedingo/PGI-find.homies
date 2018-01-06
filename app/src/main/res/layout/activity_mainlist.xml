@@ -14,7 +14,7 @@
         android:layout_height="150dp"
         android:layout_marginBottom="20dp"
         android:onClick="onClick"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="20dp"
         android:background="@drawable/bt" />
 
     <TextView
@@ -82,12 +82,26 @@
 
     <Button
         android:id="@+id/search"
-        android:layout_width="150dp"
-        android:layout_height="45dp"
+        android:layout_width="120dp"
+        android:layout_height="30dp"
         android:background="@drawable/buttonshape"
         android:font="@font/futuralt"
         android:onClick="onClick"
         android:text="Pesquisar"
+        android:layout_gravity="bottom|center_horizontal"
+        android:textAllCaps="false"
+        android:textColor="#416BC1"
+        android:textSize="17sp" />
+
+    <Button
+        android:id="@+id/searchall"
+        android:layout_width="150dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/buttonshape"
+        android:font="@font/futuralt"
+        android:onClick="onClick"
+        android:text="Pesquisar todos"
         android:layout_gravity="bottom|center_horizontal"
         android:textAllCaps="false"
         android:textColor="#416BC1"

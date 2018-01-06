@@ -13,12 +13,46 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="20dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="20dp"
         android:font="@font/futuralt"
         android:text="Sobre o find.homies"
         android:textColor="#416BC1"
         android:textSize="28sp" />
+
+    <TextView
+        android:id="@+id/texto"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:textAlignment="center"
+        android:layout_marginTop="5dp"
+        android:font="@font/futuralt"
+        android:text="Somos um grupo de estudantes do 3º Ano de Engenharia Informática da FCTUC. No âmbito da cadeira de Processos de Gestão e Inovação criámos o find.homies, uma aplicação para estudantes de Coimbra encontrarem outros estudantes com quem partilhar casa. Para qualquer informação contactem-nos através da nossa página de Facebook!\n\nGrupo:\nLuís Bernarda\nFrancisco Bento\nTiago Gomes\nInês Silva\nDavid Ferrugento\nDiogo Amores"
+        android:textColor="#3f4041"
+        android:textSize="15sp" />
     />
+
+
+    <ImageView
+        android:layout_gravity="center_horizontal"
+
+        android:id="@+id/image"
+        android:layout_marginTop="5dp"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/grupo" />
+
+    <Button
+        android:layout_width="130dp"
+        android:layout_height="30dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:background="#3B5998"
+        android:onClick="browser"
+        android:text="Facebook"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#ffffff" />
 
 </LinearLayout>
