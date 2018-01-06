@@ -1,9 +1,8 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -46,8 +45,8 @@ public class SignUp extends AppCompatActivity {
                         sender.putExtra("savedEmail", savedEmail);
                         startActivity(sender);
                     }
-                    else{
-                        toastMessage("As passwords precisam de ser iguais!");
+                    else if (savedPassword.length() < 6){
+                        toastMessage("A password precisa de ter 6 ou mais caracteres!");
                     }
                 }
                 else{

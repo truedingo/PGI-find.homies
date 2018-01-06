@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/gradient_color"
     android:orientation="vertical"
-    tools:context="com.example.dingo.loginscreentryout.aboutActivity">
+    tools:context="com.example.dingo.loginscreentryout.c.example.dingo.loginscreentryout.aboutActivity">
 
     <TextView
         android:id="@+id/sobre"

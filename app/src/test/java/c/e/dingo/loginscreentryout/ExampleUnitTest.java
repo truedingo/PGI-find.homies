@@ -1,4 +1,4 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
 import org.junit.Test;
 

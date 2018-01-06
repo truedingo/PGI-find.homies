@@ -1,5 +1,6 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -19,14 +20,21 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+
 public class ListActivity extends AppCompatActivity {
 
     private final static String TAG = "List";
-    private pedido [] arrayPedidos;
-
-    String[] fctuc = {"Geologia", "Antropologia ", "Biologia", "Bioquímica", "Design e Multimédia", "Engenharia Informática", "Engenharia e Gestão Industrial", "Física", "Matemática", "Química", "Química Medicinal", "Arquitetura", "Engenharia Cívil", "Engenharia do Ambiente", "Engenharia Eletrotécnica", "Engenharia Mecânica", "Engenharia Química", "Engenharia Biomédica", "Engenharia Física"};
-
-
+    private ArrayList<pedido> arrayPedidos =new ArrayList<>();
+    private ArrayList<String> emails=new ArrayList<>();
+    private ArrayList<String> nomes=new ArrayList<>();
+    private ArrayList<String> idades=new ArrayList<>();
+    private ArrayList<String> wheres=new ArrayList<>();
+    private ArrayList<String> searchings=new ArrayList<>();
+    private ArrayList<String> obs=new ArrayList<>();
+    private ArrayList<String> ideais=new ArrayList<>();
+    String[] fctuc = {"Geologia"};
+    String[] myStringArray = new String[3];
     private FirebaseDatabase mFirebaseDatabase;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
@@ -45,11 +53,10 @@ public class ListActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras != null) {
             savedCurso = extras.getString("savedCurso");
-            toastMessage(savedCurso);
         }
-        ListView listView=findViewById(R.id.listview);
-        CustomAdapter customAdapter=new CustomAdapter();
-        listView.setAdapter(customAdapter);
+        final ListView listView=findViewById(R.id.listview);
+        final CustomAdapter customAdapter=new CustomAdapter();
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -70,6 +77,12 @@ public class ListActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot){
                 //Metodo para retornar cenas
                 showData(dataSnapshot);
+                if (emails.size()!=0)
+                    listView.setAdapter(customAdapter);
+                else{
+                    toastMessage("Sem Resultados");
+                    startActivity(new Intent(ListActivity.this,Mainlist.class));
+                }
             }
 
             @Override
@@ -78,26 +91,42 @@ public class ListActivity extends AppCompatActivity {
             }
         });
 
+
     }
 
     private void showData(DataSnapshot dataSnapshot) {
         int i=0;
-        for(DataSnapshot ds: dataSnapshot.getChildren()){
-            String currentCurso = ds.getValue(pedido.class).getCurso();
-            if(currentCurso.equals(savedCurso)){
+        if(savedCurso.equals("Todos os cursos")){
+            for(DataSnapshot ds: dataSnapshot.getChildren()){
                 pedido storePedidos = ds.getValue(pedido.class);
-                arrayPedidos[i] = storePedidos;
-                i+=1;
+                arrayPedidos.add(storePedidos);
             }
-
+        }else{
+            for(DataSnapshot ds: dataSnapshot.getChildren()){
+                String currentCurso = ds.getValue(pedido.class).getCurso();
+                if(currentCurso.equals(savedCurso)){
+                    pedido storePedidos = ds.getValue(pedido.class);
+                    arrayPedidos.add(storePedidos);
+                }
+            }
         }
+        for (pedido p:arrayPedidos){
+            emails.add(p.getEmail());
+            nomes.add(p.getNome());
+            idades.add(p.getAge());
+            wheres.add(p.getWhere());
+            searchings.add(p.getSearching());
+            obs.add(p.getObs());
+            ideais.add(p.getIdealHomies());
+        }
+
     }
 
     class CustomAdapter extends BaseAdapter{
 
         @Override
         public int getCount() {
-            return fctuc.length;
+            return emails.size();
         }
 
         @Override
@@ -112,10 +141,26 @@ public class ListActivity extends AppCompatActivity {
 
         @Override
         public View getView(int i, View view, ViewGroup viewGroup) {
-            view=getLayoutInflater().inflate(R.layout.row,null);
-            TextView tv=(TextView) view.findViewById(R.id.Nome);
-            tv.setText(arrayPedidos[i].getEmail());
-            return view;
+            if(emails.size()!=0){
+                view=getLayoutInflater().inflate(R.layout.row,null);
+                TextView name=(TextView) view.findViewById(R.id.nome);
+                TextView email=(TextView) view.findViewById(R.id.email);
+                TextView idade=(TextView) view.findViewById(R.id.textView8);
+                TextView where=(TextView) view.findViewById(R.id.textView11);
+                TextView ob=(TextView) view.findViewById(R.id.textView16);
+                TextView searching=(TextView) view.findViewById(R.id.textView14);
+                TextView ideals=(TextView) view.findViewById(R.id.textView18);
+                name.setText(nomes.get(i));
+                email.setText(emails.get(i));
+                idade.setText(idades.get(i));
+                where.setText(wheres.get(i));
+                ob.setText(obs.get(i));
+                searching.setText(searchings.get(i));
+                ideals.setText(ideais.get(i));
+                return view;
+            }
+            else
+                return null;
         }
     }
     public void onStart() {

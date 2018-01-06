@@ -1,4 +1,4 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
 /**
  * Created by tiagogomes on 29/12/17.

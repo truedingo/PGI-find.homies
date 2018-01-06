@@ -1,4 +1,4 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +17,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
 public class addActivity extends AppCompatActivity {
     private static final String TAG = "ADD";
     private FirebaseAuth mAuth;
@@ -27,6 +25,8 @@ public class addActivity extends AppCompatActivity {
     private FirebaseAuth.AuthStateListener mAuthListener;
     private String selectedCurso;
     private String selectedUserID;
+    private String selectedName;
+    private String selectedAge;
 
 
 
@@ -53,7 +53,7 @@ public class addActivity extends AppCompatActivity {
         myRef.child("users").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot){
-                showUserCourse(dataSnapshot);
+                showUserData(dataSnapshot);
             }
 
             @Override
@@ -79,10 +79,10 @@ public class addActivity extends AppCompatActivity {
                 String IDEAL=ideal.getText().toString();
                 String EMAIL = mAuth.getCurrentUser().getEmail();
                 if (!WHAT.equals("") && !WHERE.equals("") && !OB.equals("") && !IDEAL.equals("")){
-                    pedido newpedido= new pedido(WHAT,user.getUid(),WHERE,OB,IDEAL, EMAIL, selectedCurso);
+                    pedido newpedido= new pedido(WHAT,user.getUid(),WHERE,OB,IDEAL, EMAIL, selectedCurso, selectedName, selectedAge);
                     if(myRef.child("anuncios").child(userid)==null){
-                        toastMessage("Anuncio criado!");
                         myRef.child("anuncios").child(userid).setValue(newpedido);
+                        toastMessage("Anuncio criado!");
                     }
                     else
                       toastMessage("Já tens um anúncio");
@@ -93,11 +93,13 @@ public class addActivity extends AppCompatActivity {
         });
     }
 
-    private void showUserCourse(DataSnapshot dataSnapshot) {
+    private void showUserData(DataSnapshot dataSnapshot) {
         for(DataSnapshot ds: dataSnapshot.getChildren()){
             selectedUserID = ds.getValue(user.class).getUid();
             if(selectedUserID.equals(mAuth.getCurrentUser().getUid())){
                 selectedCurso = ds.getValue(user.class).getCurso();
+                selectedAge = ds.getValue(user.class).getAge();
+                selectedName = ds.getValue(user.class).getName();
             }
         }
     }

@@ -1,4 +1,4 @@
-package com.example.dingo.loginscreentryout;
+package c.e.dingo.loginscreentryout;
 
 import android.content.Intent;
 import android.net.Uri;
