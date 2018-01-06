@@ -191,7 +191,7 @@ public class Info extends AppCompatActivity{
                     String selectedAge = spinner.getSelectedItem().toString();
                     String selectedName = name.getText().toString();
                     String userID = authUser.getUid();
-                    user newUser = new user(selectedName, authUser.getEmail(), selectedFaculdade, selectedCurso, selectedAge);
+                    user newUser = new user(selectedName, authUser.getEmail(), selectedFaculdade, selectedCurso, selectedAge, userID);
                     myRef.child("users").child(userID).setValue(newUser);
                     startActivity(new Intent(Info.this, Mainlist.class));
                 }

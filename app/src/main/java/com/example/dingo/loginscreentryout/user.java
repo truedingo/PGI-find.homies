@@ -10,6 +10,7 @@ public class user {
     private String fac;
     private String curso;
     private String age;
+    private String uid;
 
     //Constructor
 
@@ -29,15 +30,27 @@ public class user {
         this.age = age;
     }
 
-    public user(String name, String email, String fac, String description, String age) {
+    public user(String name, String email, String fac, String description, String age, String uid) {
         this.name = name;
         this.email = email;
         this.fac = fac;
         this.curso = description;
         this.age = age;
+        this.uid = uid;
+    }
+
+    public user() {
     }
 
     //Setter, getter
+
+    public String getUid() {
+        return uid;
+    }
+
+    public void setUid(String uid) {
+        this.uid = uid;
+    }
 
     public String getEmail() {
         return email;

@@ -105,7 +105,6 @@ public class Mainlist extends AppCompatActivity {
                     @Override
                     public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
                         savedCurso = spinner2.getSelectedItem().toString();
-                        toastMessage(savedCurso);
                     }
 
                     @Override
