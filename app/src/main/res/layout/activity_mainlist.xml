@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_color"
+    android:background="@drawable/im1"
     android:orientation="vertical">
 
 
     <Button
         android:id="@+id/create"
-        android:layout_width="160dp"
+        android:layout_width="130dp"
+        android:layout_height="120dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_height="150dp"
         android:layout_marginBottom="20dp"
-        android:onClick="onClick"
         android:layout_marginTop="20dp"
-        android:background="@drawable/bt" />
+        android:background="@drawable/bt"
+        android:onClick="onClick" />
 
     <TextView
         android:id="@+id/procura"
@@ -23,10 +23,12 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:text="procura homies"
         android:textAlignment="center"
-        android:textColor="#416BC1"
-        android:textSize="23sp" />
+        android:textColor="#a6363739"
+        android:textSize="23sp"
+        android:typeface="normal" />
 
     <ImageView
         android:id="@+id/imageView"
@@ -46,18 +48,20 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="0dp"
         android:font="@font/futuralt"
-        android:textAlignment="center"
+        android:fontFamily="@font/futuralt"
         android:text="faculdade:"
-        android:textColor="#416BC1"
-        android:textSize="18sp" />
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinner4"
         android:layout_width="130dp"
-        android:layout_height="40dp"
+        android:layout_height="30dp"
+        android:textColor="#cd949393"
         android:layout_gravity="bottom|center_horizontal"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/edit_color" />
+        android:layout_marginTop="0dp"
+        android:background="@drawable/edit_color2" />
 
     <TextView
         android:id="@+id/textView9"
@@ -66,45 +70,49 @@
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="0dp"
         android:font="@font/futuralt"
-        android:textAlignment="center"
+        android:fontFamily="@font/futuralt"
         android:text="curso:"
-        android:textColor="#416BC1"
-        android:textSize="18sp" />
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="20sp" />
 
     <Spinner
         android:id="@+id/spinner5"
         android:layout_width="130dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="5dp"
-        android:layout_marginBottom="20dp"
+        android:textColor="#cd949393"
+        android:layout_height="30dp"
         android:layout_gravity="bottom|center_horizontal"
-        android:background="@drawable/edit_color" />
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/edit_color2" />
 
     <Button
         android:id="@+id/search"
         android:layout_width="120dp"
         android:layout_height="30dp"
-        android:background="@drawable/buttonshape"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/b1"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:onClick="onClick"
         android:text="Pesquisar"
-        android:layout_gravity="bottom|center_horizontal"
         android:textAllCaps="false"
-        android:textColor="#416BC1"
+        android:textColor="#da3e3f40"
         android:textSize="17sp" />
 
     <Button
         android:id="@+id/searchall"
         android:layout_width="150dp"
         android:layout_height="30dp"
+        android:layout_gravity="bottom|center_horizontal"
         android:layout_marginTop="10dp"
-        android:background="@drawable/buttonshape"
+        android:background="@drawable/b1"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:onClick="onClick"
         android:text="Pesquisar todos"
-        android:layout_gravity="bottom|center_horizontal"
         android:textAllCaps="false"
-        android:textColor="#416BC1"
+        android:textColor="#da3e3f40"
         android:textSize="17sp" />
 
     <ImageView
@@ -122,14 +130,15 @@
     <Button
         android:id="@+id/signoutButton"
         android:layout_width="100dp"
-        android:layout_height="45dp"
-        android:background="@drawable/buttonshape"
+        android:layout_height="35dp"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@drawable/b1"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:onClick="onClick"
         android:text="Sign Out"
-        android:layout_gravity="bottom|center_horizontal"
         android:textAllCaps="false"
-        android:textColor="#416BC1"
+        android:textColor="#999999"
         android:textSize="17sp" />
 
 </LinearLayout>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/gradient_color"
+    android:background="@drawable/im1"
     android:orientation="vertical"
-    tools:context="com.example.dingo.loginscreentryout.c.example.dingo.loginscreentryout.aboutActivity">
+    tools:context="c.e.dingo.find.aboutActivity">
 
     <TextView
         android:id="@+id/sobre"
@@ -16,31 +16,32 @@
         android:layout_marginBottom="10dp"
         android:layout_marginTop="20dp"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:text="Sobre o find.homies"
-        android:textColor="#416BC1"
+        android:textColor="#d7292a2b"
         android:textSize="28sp" />
 
     <TextView
         android:id="@+id/texto"
-        android:layout_width="330dp"
+        android:layout_width="270dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:textAlignment="center"
         android:layout_marginTop="5dp"
         android:font="@font/futuralt"
+        android:fontFamily="@font/futuralt"
         android:text="Somos um grupo de estudantes do 3º Ano de Engenharia Informática da FCTUC. No âmbito da cadeira de Processos de Gestão e Inovação criámos o find.homies, uma aplicação para estudantes de Coimbra encontrarem outros estudantes com quem partilhar casa. Para qualquer informação contactem-nos através da nossa página de Facebook!\n\nGrupo:\nLuís Bernarda\nFrancisco Bento\nTiago Gomes\nInês Silva\nDavid Ferrugento\nDiogo Amores"
-        android:textColor="#3f4041"
-        android:textSize="15sp" />
+        android:textColor="#000000"
+        android:textSize="19sp" />
     />
 
 
     <ImageView
-        android:layout_gravity="center_horizontal"
-
         android:id="@+id/image"
+
+        android:layout_width="140dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal"
         android:layout_marginTop="5dp"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
         android:src="@drawable/grupo" />
 
     <Button
@@ -55,4 +56,4 @@
         android:textAllCaps="false"
         android:textColor="#ffffff" />
 
-</LinearLayout>
+</ScrollView>

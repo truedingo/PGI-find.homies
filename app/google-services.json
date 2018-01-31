@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:443327818016:android:9cb74004c778b4fd",
         "android_client_info": {
-          "package_name": "c.e.dingo.loginscreentryout"
+          "package_name": "c.e.dingo.find"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "443327818016-1e5eka27l7f5rjvl5htv7hi0g60sh3lu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "c.e.dingo.loginscreentryout",
+            "package_name": "c.e.dingo.find",
             "certificate_hash": "ff6ef381a964c4553c7d3e7cc3c805bb9952e6f9"
           }
         },

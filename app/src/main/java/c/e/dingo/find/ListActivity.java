@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -145,14 +145,12 @@ public class ListActivity extends AppCompatActivity {
                 view=getLayoutInflater().inflate(R.layout.row,null);
                 TextView name=(TextView) view.findViewById(R.id.nome);
                 TextView email=(TextView) view.findViewById(R.id.email);
-                TextView idade=(TextView) view.findViewById(R.id.textView8);
                 TextView where=(TextView) view.findViewById(R.id.textView11);
                 TextView ob=(TextView) view.findViewById(R.id.textView16);
                 TextView searching=(TextView) view.findViewById(R.id.textView14);
                 TextView ideals=(TextView) view.findViewById(R.id.textView18);
-                name.setText(nomes.get(i));
+                name.setText(nomes.get(i)+", "+idades.get(i));
                 email.setText(emails.get(i));
-                idade.setText(idades.get(i));
                 where.setText(wheres.get(i));
                 ob.setText(obs.get(i));
                 searching.setText(searchings.get(i));

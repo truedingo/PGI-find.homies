@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -25,7 +25,6 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        Button about= findViewById(R.id.about);
         Button login = findViewById(R.id.bLogin);
         Button signup = findViewById(R.id.button3);
         final EditText mEmail = findViewById(R.id.editText2);
@@ -64,12 +63,7 @@ public class Login extends AppCompatActivity {
             }
         });
 
-        about.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                startActivity(new Intent(Login.this, aboutActivity.class));
-            }
-        });
+
 
 
     }

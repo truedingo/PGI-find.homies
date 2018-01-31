@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import android.content.Intent;
 import android.support.annotation.NonNull;
@@ -27,7 +27,7 @@ public class Mainlist extends AppCompatActivity {
     String[] faculdades = {"FDUC", "FLUC", "FCTUC", "FEUC", "FFUC", "FPCEUC", "FCDEFUC", "FMUC"};
     String[] fctuc = {"Geologia", "Antropologia", "Biologia", "Bioquímica", "Design e Multimédia", "Engenharia Informática", "Engenharia e Gestão Industrial", "Física", "Matemática", "Química", "Química Medicinal", "Arquitetura", "Engenharia Cívil", "Engenharia do Ambiente", "Engenharia Eletrotécnica", "Engenharia Mecânica", "Engenharia Química", "Engenharia Biomédica", "Engenharia Física"};
     String[] fmuc = {"Medicina", "Medicina Dentária"};
-    String[] feuc = {"Relações Internacionais", "Gestão", "Economia"};
+    String[] feuc = {"Relações Internacionais", "Gestão", "Economia","Sociologia"};
     String[] fcdefuc = {"Ciências do Desporto"};
     String[] fpceuc = {"Serviço Social", "Psicologia", "Ciências da Educação"};
     String[] ffuc = {"Farmácia Biomédica", "Ciências Bioanalíticas", "Ciências Farmacêuticas"};

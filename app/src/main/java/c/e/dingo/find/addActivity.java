@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -78,15 +78,13 @@ public class addActivity extends AppCompatActivity {
                 String OB=ob.getText().toString();
                 String IDEAL=ideal.getText().toString();
                 String EMAIL = mAuth.getCurrentUser().getEmail();
-                if (!WHAT.equals("") && !WHERE.equals("") && !OB.equals("") && !IDEAL.equals("")){
-                    pedido newpedido= new pedido(WHAT,user.getUid(),WHERE,OB,IDEAL, EMAIL, selectedCurso, selectedName, selectedAge);
-                    if(myRef.child("anuncios").child(userid)==null){
-                        myRef.child("anuncios").child(userid).setValue(newpedido);
-                        toastMessage("Anuncio criado!");
-                    }
-                    else
-                      toastMessage("Já tens um anúncio");
+                if (!WHAT.equals("") && !WHERE.equals("") && !OB.equals("") && !IDEAL.equals("") && selectedCurso!=null &&  selectedName!=null  && selectedAge!=null) {
+                    pedido newpedido = new pedido(WHAT, user.getUid(), WHERE, OB, IDEAL, EMAIL, selectedCurso, selectedName, selectedAge);
+                    myRef.child("anuncios").child(userid).setValue(newpedido);
+                    toastMessage("Anuncio criado!");
                 }
+                else
+                    toastMessage("Erro ao criar anúncio");
             }
 
 

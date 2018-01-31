@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import org.junit.Test;
 

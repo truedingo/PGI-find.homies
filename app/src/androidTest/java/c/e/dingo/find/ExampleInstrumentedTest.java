@@ -1,4 +1,4 @@
-package c.e.dingo.loginscreentryout;
+package c.e.dingo.find;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

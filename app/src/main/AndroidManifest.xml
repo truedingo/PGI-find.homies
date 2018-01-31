@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="c.e.dingo.loginscreentryout">
+    package="c.e.dingo.find">
 
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -11,19 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name="c.e.dingo.loginscreentryout.Login">
+        <activity android:name="c.e.dingo.find.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="c.e.dingo.loginscreentryout.Info" />
-        <activity android:name="c.e.dingo.loginscreentryout.SignUp" />
-        <activity android:name="c.e.dingo.loginscreentryout.Mainlist" />
-        <activity android:name="c.e.dingo.loginscreentryout.ListActivity" />
-        <activity android:name="c.e.dingo.loginscreentryout.addActivity" />
-        <activity android:name="c.e.dingo.loginscreentryout.aboutActivity"></activity>
+        <activity android:name="c.e.dingo.find.Info" />
+        <activity android:name="c.e.dingo.find.SignUp" />
+        <activity android:name="c.e.dingo.find.Mainlist" />
+        <activity android:name="c.e.dingo.find.ListActivity" />
+        <activity android:name="c.e.dingo.find.addActivity" />
+        <activity android:name="c.e.dingo.find.aboutActivity"></activity>
     </application>
 
 </manifest>

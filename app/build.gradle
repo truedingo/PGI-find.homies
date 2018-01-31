@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     defaultConfig {
-        applicationId "c.e.dingo.loginscreentryout"
+        applicationId "c.e.dingo.find"
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
